@@ -1,5 +1,6 @@
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
+const { dataSource } = require('../typeorm')
 
 class ResumeRepository {
     selectAllSortedResumes = async (sort) => {
@@ -26,7 +27,24 @@ class ResumeRepository {
     }
 
     selectOneResumeByResumeId = async (resumeId) => {
-        const resume = await prisma.resume.findFirst({
+        // const resume = await prisma.resume.findFirst({
+        //     where: {
+        //         resumeId: +resumeId,
+        //     },
+        //     select: {
+        //         resumeId: true,
+        //         title: true,
+        //         content: true,
+        //         status: true,
+        //         user: {
+        //             select: {
+        //                 name: true,
+        //             },
+        //         },
+        //         createdAt: true,
+        //     },
+        // })
+        const resume = await dataSource.getRepository('Resume').findOne({
             where: {
                 resumeId: +resumeId,
             },
