@@ -13,7 +13,7 @@ class ResumeService {
         return resume
     }
 
-    createResume = async (title, content, userId) => {
+    createResume = async ({ title, content, userId }) => {
         await resumeRepository.createResume({
             title,
             content,

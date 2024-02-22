@@ -9,7 +9,7 @@ class UserService {
 
         // clientId (kakao)
         if (clientId) {
-            const user = await selectOneUserByClientId(clientId)
+            const user = await userRepository.selectOneUserByClientId(clientId)
 
             if (user) {
                 throw {

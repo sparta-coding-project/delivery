@@ -1,10 +1,8 @@
-const { PrismaClient } = require('@prisma/client')
-const prisma = new PrismaClient()
 const { dataSource } = require('../typeorm')
 
 class ResumeRepository {
     selectAllSortedResumes = async (sort) => {
-        const resumes = await prisma.resume.findMany({
+        const resumes = await dataSource.getRepository('Resume').find({
             select: {
                 resumeId: true,
                 title: true,
@@ -17,33 +15,14 @@ class ResumeRepository {
                 },
                 createdAt: true,
             },
-            orderBy: [
-                {
-                    [sort.orderKey]: sort.orderValue,
-                },
-            ],
+            order: {
+                [sort.orderKey]: sort.orderValue,
+            },
         })
         return resumes
     }
 
     selectOneResumeByResumeId = async (resumeId) => {
-        // const resume = await prisma.resume.findFirst({
-        //     where: {
-        //         resumeId: +resumeId,
-        //     },
-        //     select: {
-        //         resumeId: true,
-        //         title: true,
-        //         content: true,
-        //         status: true,
-        //         user: {
-        //             select: {
-        //                 name: true,
-        //             },
-        //         },
-        //         createdAt: true,
-        //     },
-        // })
         const resume = await dataSource.getRepository('Resume').findOne({
             where: {
                 resumeId: +resumeId,
@@ -53,6 +32,7 @@ class ResumeRepository {
                 title: true,
                 content: true,
                 status: true,
+                userId: true,
                 user: {
                     select: {
                         name: true,
@@ -65,26 +45,19 @@ class ResumeRepository {
     }
 
     createResume = async (data) => {
-        await prisma.resume.create({
-            data, // 어떤걸 저장하게 되는지는 biz logic이라 service에 명시함
-        })
+        await dataSource.getRepository('Resume').insert(data) // 어떤걸 저장하게 되는지는 biz logic이라 service에 명시함
     }
 
     updateResumeByResumeId = async (resumeId, data) => {
         // 내가 작성한 이력서이거나 권한 등급이 admin이다.
-        await prisma.resume.update({
-            where: {
-                resumeId: +resumeId,
-            },
-            data,
-        })
+        await dataSource
+            .getRepository('Resume')
+            .update({ resumeId: +resumeId }, data)
     }
 
     deleteResumeByResumeId = async (resumeId) => {
-        await prisma.resume.delete({
-            where: {
-                resumeId: +resumeId,
-            },
+        await dataSource.getRepository('Resume').delete({
+            resumeId: +resumeId,
         })
     }
 }

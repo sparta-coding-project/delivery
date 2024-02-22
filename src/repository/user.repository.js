@@ -1,9 +1,8 @@
-const { PrismaClient } = require('@prisma/client')
-const prisma = new PrismaClient()
+const { dataSource } = require('../typeorm')
 
 class UserRepository {
     findOneUserByUserId = async (userId) => {
-        const user = await prisma.user.findFirst({
+        const user = await dataSource.getRepository('User').findOne({
             where: {
                 userId,
             },
@@ -13,7 +12,7 @@ class UserRepository {
     }
 
     selectOneUserByClientId = async (clientId) => {
-        const user = await prisma.user.findFirst({
+        const user = await dataSource.getRepository('User').findOne({
             where: {
                 clientId,
             },
@@ -22,7 +21,7 @@ class UserRepository {
     }
 
     selectOneUserByEmail = async (email) => {
-        const user = await prisma.user.findFirst({
+        const user = await dataSource.getRepository('User').findOne({
             where: {
                 email,
             },
@@ -31,7 +30,7 @@ class UserRepository {
     }
 
     selectOneUserByEmailAndPassword = async (email, password) => {
-        const user = await prisma.user.findFirst({
+        const user = await dataSource.getRepository('User').findOne({
             where: {
                 email,
                 password,
@@ -41,9 +40,7 @@ class UserRepository {
     }
 
     createUser = async (data) => {
-        await prisma.user.create({
-            data,
-        })
+        await dataSource.getRepository('User').insert(data)
     }
 }
 
