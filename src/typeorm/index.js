@@ -16,6 +16,8 @@ const dataSource = new typeorm.DataSource({
     ],
 })
 
-dataSource.initialize()
+if (process.env.NODE_ENV !== 'test') {
+    dataSource.initialize()
+}
 
 module.exports = { dataSource }
