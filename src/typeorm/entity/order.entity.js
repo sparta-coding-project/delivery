@@ -1,5 +1,12 @@
 const EntitySchema = require('typeorm').EntitySchema
 
+const STATUS = {
+    ORDER_WAITIED: 'ORDER_WAITING',
+    ORDER_PREPARING: 'ORDER_PREPARING',
+    DELIVERY_STARTED: 'DELIVERY_STARTED',
+    DELIVERY_COMPLETED: 'DELIVERY_COMPLETED',
+}
+
 module.exports = new EntitySchema({
     name: 'Order',
     tableName: 'Orders',
@@ -20,7 +27,7 @@ module.exports = new EntitySchema({
         },
         status: {
             type: 'enum',
-            enum: ['상품 준비중', '배송중', '배송완료'],
+            enum: STATUS,
         },
         location: {
             type: 'varchar',
@@ -30,6 +37,10 @@ module.exports = new EntitySchema({
         },
         field: {
             type: 'varchar',
+        },
+        createdAt: {
+            type: 'timestamp',
+            createDate: true,
         },
     },
     relations: {
