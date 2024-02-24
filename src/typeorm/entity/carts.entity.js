@@ -1,4 +1,4 @@
-const EntitySchema = require("typeorm").EntitySchema;
+const EntitySchema = require('typeorm').EntitySchema
 
 module.exports = new EntitySchema({
     name: 'Carts',
@@ -7,39 +7,40 @@ module.exports = new EntitySchema({
         cartId: {
             primary: true,
             type: 'int',
-            generated: true,
-            unique: true
+            generated: 'increment',
         },
         userId: {
-            type: "int"
+            type: 'int',
         },
         menuId: {
             type: 'int',
         },
         quantity: {
-            type:"int",
+            type: 'int',
         },
         createdAt: {
-            type: 'datetime',
+            type: "timestamp",
+            createDate: true
         },
         updatedAt: {
-            type: "datetime"
-        }
-    },
-    relations: {
-        users: {
-            target: 'Users',
-            type: 'many-to-one',
-            joinTable: true,
-            joinColumn: { name: 'userId' },
-            cascade: true,
+            type: 'timestamp',
+            createDate: true
         },
-        menu:{
-            target: "Menu",
-            type: "many-to-one",
-            joinTable: true,
-            joinColumn: { name: "menuId" },
-            cascade: true
-        }
     },
+    // relations: {
+    // users: {
+    //     target: 'Users',
+    //     type: 'many-to-one',
+    //     joinTable: true,
+    //     joinColumn: { name: 'userId' },
+    //     cascade: true,
+    // },
+    // menu:{
+    //     target: "Menu",
+    //     type: "many-to-one",
+    //     joinTable: true,
+    //     joinColumn: { name: "menuId" },
+    //     cascade: true
+    // }
+    // },
 })

@@ -7,11 +7,10 @@ module.exports = new EntitySchema({
         reviewId: {
             primary: true,
             type: 'int',
-            generated: true,
-            unique: true
+            generated: 'increment',
         },
         storeId: {
-            type: "int"
+            type: 'int',
         },
         userId: {
             type: 'int',
@@ -22,35 +21,37 @@ module.exports = new EntitySchema({
         },
         content: {
             type: 'varchar',
-            unique:true,
+            unique: true,
         },
         score: {
-            type: "int",
+            type: 'int',
         },
         image: {
-            type: "varchar",
+            type: 'varchar',
         },
         createdAt: {
-            type: 'datetime',
+            type: "timestamp",
+            createDate: true
         },
         updatedAt: {
-            type: "datetime"
-        }
-    },
-    relations: {
-        users: {
-            target: 'Users',
-            type: 'many-to-one',
-            joinTable: true,
-            joinColumn: { name: 'userId' },
-            cascade: true,
+            type: 'timestamp',
+            createDate: true
         },
-        stores: {
-            target: "Stores",
-            type: "many-to-one",
-            joinTable: true,
-            joinColumn: { name: "storeId" },
-            cascade: true
-        }
     },
+    // relations: {
+    // users: {
+    //     target: 'Users',
+    //     type: 'many-to-one',
+    //     joinTable: true,
+    //     joinColumn: { name: 'userId' },
+    //     cascade: true,
+    // },
+    // stores: {
+    //     target: "Stores",
+    //     type: "many-to-one",
+    //     joinTable: true,
+    //     joinColumn: { name: "storeId" },
+    //     cascade: true
+    // }
+    // },
 })
