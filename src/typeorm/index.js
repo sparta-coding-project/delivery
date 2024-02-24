@@ -4,11 +4,11 @@ const typeorm = require('typeorm')
 
 const dataSource = new typeorm.DataSource({
     type: 'mysql',
-    host: process.env.HOST,
-    port: process.env.PORT,
-    username: process.env.USERNAME,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE,
+    host: process.env.DATABASE_HOST,
+    port: process.env.DATABASE_PORT,
+    username: process.env.DATABASE_USERNAME,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_DB_NAME,
     synchronize: false,
     entities: [
         require('./entity/user.entity'),
