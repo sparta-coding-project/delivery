@@ -12,7 +12,7 @@ module.exports = new EntitySchema({
         userId: {
             type: 'int',
         },
-        storedId: {
+        storeId: {
             type: 'int',
         },
         menuId: {
@@ -20,6 +20,7 @@ module.exports = new EntitySchema({
         },
         status: {
             type: 'enum',
+            enum: ['상품 준비중', '배송중', '배송완료'],
         },
         location: {
             type: 'varchar',
@@ -39,8 +40,7 @@ module.exports = new EntitySchema({
             joinColumn: { name: 'userId' },
             cascade: true,
         },
-    },
-    relations: {
+
         store: {
             target: 'Stores',
             type: 'many-to-one',
@@ -48,8 +48,7 @@ module.exports = new EntitySchema({
             joinColumn: { name: 'storeId' },
             cascade: true,
         },
-    },
-    relations: {
+
         menu: {
             target: 'menu',
             type: 'many-to-one',
