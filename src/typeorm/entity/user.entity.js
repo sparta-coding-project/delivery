@@ -11,21 +11,27 @@ module.exports = new EntitySchema({
         },
         clientId: {
             type: 'varchar',
+            nullable: true,
         },
         email: {
             type: 'varchar',
+            nullable: true,
         },
         password: {
             type: 'varchar',
+            nullable: true,
         },
         grade: {
             type: 'varchar',
+            nullable: true,
         },
         name: {
             type: 'varchar',
+            nullable: true,
         },
         createdAt: {
             type: 'datetime',
+            nullable: true,
         },
     },
 })

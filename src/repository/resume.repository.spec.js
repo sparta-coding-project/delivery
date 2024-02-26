@@ -2,6 +2,7 @@ const { dataSource } = require('../typeorm')
 const resumeRepository = require('./resume.repository')
 
 jest.mock('../typeorm')
+// jest.mock('./resume.repository')
 
 describe('ResumeRepository', () => {
     describe('이력서 전체 조회', () => {
@@ -126,7 +127,7 @@ describe('ResumeRepository', () => {
     describe('이력서 삭제', () => {
         it('이력서가 정상 삭제된다', async () => {
             dataSource.getRepository = (tableName) => ({
-                update: jest.fn(() => ({
+                delete: jest.fn(() => ({
                     affected: 1,
                 })),
             })

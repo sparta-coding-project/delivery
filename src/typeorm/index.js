@@ -1,15 +1,14 @@
 require('dotenv').config()
 
 const typeorm = require('typeorm')
-
 const dataSource = new typeorm.DataSource({
     type: 'mysql',
-    host: process.env.HOST,
+    host: process.env.DB_HOST,
     port: process.env.PORT,
-    username: process.env.USERNAME,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE,
-    synchronize: false,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    synchronize: true,
     entities: [
         require('./entity/user.entity'),
         require('./entity/resume.entity'),
