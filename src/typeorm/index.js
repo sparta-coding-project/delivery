@@ -9,7 +9,7 @@ const dataSource = new DataSource({
     username: process.env.DATABASE_USERNAME,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_DB_NAME,
-    synchronize: false,
+    synchronize: true,
     entities: ['src/typeorm/entity/**/*.js'],
     migrations: ['src/typeorm/migrations/**/*.js'],
     cli: {

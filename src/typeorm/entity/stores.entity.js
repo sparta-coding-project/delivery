@@ -1,8 +1,8 @@
 const EntitySchema = require('typeorm').EntitySchema
 
 module.exports = new EntitySchema({
-    name: 'Store',
-    tableName: 'store',
+    name: 'Stores',
+    tableName: 'stores',
     columns: {
         storeId: {
             primary: true,
@@ -40,8 +40,8 @@ module.exports = new EntitySchema({
         },
     },
     relations: {
-        User: {
-            target: 'user',
+        users: {
+            target: 'Users',
             type: 'many-to-one',
             joinTable: true,
             joinColumn: { name: 'userId' },

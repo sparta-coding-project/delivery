@@ -19,28 +19,28 @@ module.exports = new EntitySchema({
             type: 'int',
         },
         createdAt: {
-            type: "timestamp",
-            createDate: true
+            type: 'timestamp',
+            createDate: true,
         },
         updatedAt: {
             type: 'timestamp',
-            createDate: true
+            createDate: true,
         },
     },
-    // relations: {
-    // users: {
-    //     target: 'Users',
-    //     type: 'many-to-one',
-    //     joinTable: true,
-    //     joinColumn: { name: 'userId' },
-    //     cascade: true,
-    // },
-    // menu:{
-    //     target: "Menu",
-    //     type: "many-to-one",
-    //     joinTable: true,
-    //     joinColumn: { name: "menuId" },
-    //     cascade: true
-    // }
-    // },
+    relations: {
+        users: {
+            target: 'Users',
+            type: 'many-to-one',
+            joinTable: true,
+            joinColumn: { name: 'userId' },
+            cascade: true,
+        },
+        menu: {
+            target: 'Menu',
+            type: 'many-to-one',
+            joinTable: true,
+            joinColumn: { name: 'menuId' },
+            cascade: true,
+        },
+    },
 })

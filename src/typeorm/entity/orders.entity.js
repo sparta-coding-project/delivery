@@ -8,7 +8,7 @@ const STATUS = {
 }
 
 module.exports = new EntitySchema({
-    name: 'Order',
+    name: 'Orders',
     tableName: 'Orders',
     columns: {
         orderId: {
@@ -44,7 +44,7 @@ module.exports = new EntitySchema({
         },
     },
     relations: {
-        user: {
+        users: {
             target: 'Users',
             type: 'many-to-one',
             joinTable: true,
@@ -52,7 +52,7 @@ module.exports = new EntitySchema({
             cascade: true,
         },
 
-        store: {
+        stores: {
             target: 'Stores',
             type: 'many-to-one',
             joinTable: true,
@@ -61,7 +61,7 @@ module.exports = new EntitySchema({
         },
 
         menu: {
-            target: 'menu',
+            target: 'Menu',
             type: 'many-to-one',
             joinTable: true,
             joinColumn: { name: 'menuId' },
