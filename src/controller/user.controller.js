@@ -68,6 +68,7 @@ class UserController {
                 clientId,
                 password,
                 name,
+                profileImage,
                 grade,
             })
 
@@ -102,6 +103,7 @@ class UserController {
             return res.json({
                 email: user.email,
                 name: user.name,
+                profileImage: user.profileImage,
             })
         } catch (err) {
             return res.status(err.code).json(err)
