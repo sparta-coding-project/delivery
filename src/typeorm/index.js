@@ -17,11 +17,18 @@ const dataSource = new DataSource({
     },
 })
 
-if (process.env.NODE_ENV !== 'test') {
+const connectDB = () => {
     dataSource
         .initialize()
         .then(() => console.log('mysql is successfully connected'))
-        .catch((error)=>console.log(error))
+        .catch((error) => console.log(error))
 }
 
-module.exports = { dataSource }
+const disconnectDB = () => {
+    dataSource
+        .destroy()
+        .then(() => console.log('mysql 연결 해제'))
+        .catch((error) => console.log(error))
+}
+
+module.exports = { dataSource, connectDB, disconnectDB }
