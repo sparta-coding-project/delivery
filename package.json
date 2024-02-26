@@ -6,6 +6,7 @@
     "type": "commonjs",
     "scripts": {
         "migration:generate": "npx typeorm migration:generate src/typeorm/migrations -o -d src/typeorm/index.js",
+        "migration:run": "npx typeorm migration:run -d src/typeorm/index.js",
         "dev": "nodemon app.js",
         "test": "jest --detectOpenHandles --forceExit"
     },
