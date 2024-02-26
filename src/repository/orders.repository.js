@@ -3,20 +3,18 @@ class OrdersRepository {
         this.dataSource = dataSource
     }
 
-    ordersRepo = this.dataSource.getRepository('Orders')
-
     selectAllOrdersByStoreId = async (storeId) => {
-        const orders = await this.ordersRepo.find({ storeId })
+        const orders = await this.dataSource.getRepository('Orders').find({ storeId })
         return orders
     }
 
     selectAllOrdersByUserId = async (userId) => {
-        const orders = await this.ordersRepo.find({ userId })
+        const orders = await this.dataSource.getRepository('Orders').find({ userId })
         return orders
     }
 
     createOrder = async ({ menuId, userId, storeId, quantity }) => {
-        const createdOrder = await this.ordersRepo.create({
+        const createdOrder = await this.dataSource.getRepository('Orders').create({
             menuId,
             userId,
             storeId,
@@ -26,7 +24,7 @@ class OrdersRepository {
     }
 
     cancelOrder = async ({ orderId }) => {
-        const canceledOrder = await this.OrdersRepository.delete({
+        const canceledOrder = await this.dataSource.getRepository('Orders').delete({
             orderId
         })
     }

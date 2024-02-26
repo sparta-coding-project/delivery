@@ -6,16 +6,19 @@ const swaggerUi = require('swagger-ui-express')
 
 const authRouter = require('./routers/auth.router')
 const userRouter = require('./routers/user.router')
-const resumeRouter = require('./routers/resume.router')
+const ordersRouter = require("./routers/orders.router")
+
+const { connectDB } = require("./src/typeorm/index")
 
 const app = express()
 const port = 3000
 
 app.use(bodyParser.json())
+connectDB();
 
 app.use('/auth', authRouter);
 app.use('/users', userRouter);
-app.use("/api", [ordersRouter, cartsRouter]);
+app.use("/api", [ordersRouter]);
 
 const options = {
     swaggerDefinition: {

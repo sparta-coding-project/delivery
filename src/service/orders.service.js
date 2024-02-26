@@ -1,6 +1,6 @@
 class OrdersService {
-    constructer(ordersRepository) {
-        this.ordersRepository = ordersRepository
+    constructor(ordersRepository) {
+        this.ordersRepository = ordersRepository;
     }
 
     getOrders = async ({ userId, storeId }) => {
@@ -34,3 +34,5 @@ class OrdersService {
         return canceledOrder
     }
 }
+
+module.exports = OrdersService;

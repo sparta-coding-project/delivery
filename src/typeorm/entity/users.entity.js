@@ -37,7 +37,8 @@ module.exports = new EntitySchema({
             type: 'varchar',
         },
         createdAt: {
-            type: 'datetime',
+            type: 'timestamp',
+            createDate: true,
         },
         updatedAt: {
             type: 'timestamp',
