@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1708959383453" clover="3.2.0">
-  <project timestamp="1708959383454" name="All files">
-    <metrics statements="226" coveredstatements="172" conditionals="82" coveredconditionals="44" methods="28" coveredmethods="26" elements="336" coveredelements="242" complexity="0" loc="226" ncloc="226" packages="5" files="11" classes="11"/>
+<coverage generated="1708961405693" clover="3.2.0">
+  <project timestamp="1708961405693" name="All files">
+    <metrics statements="227" coveredstatements="170" conditionals="82" coveredconditionals="42" methods="28" coveredmethods="26" elements="337" coveredelements="238" complexity="0" loc="227" ncloc="227" packages="5" files="11" classes="11"/>
     <package name="controller">
-      <metrics statements="106" coveredstatements="56" conditionals="46" coveredconditionals="13" methods="9" coveredmethods="7"/>
+      <metrics statements="106" coveredstatements="53" conditionals="46" coveredconditionals="11" methods="9" coveredmethods="7"/>
       <file name="auth.controller.js" path="C:\개인파일\Program_본가\Sparta\delivery\src\controller\auth.controller.js">
         <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
@@ -82,16 +82,14 @@
         <line num="172" count="1" type="stmt"/>
       </file>
       <file name="user.controller.js" path="C:\개인파일\Program_본가\Sparta\delivery\src\controller\user.controller.js">
-        <metrics statements="35" coveredstatements="20" conditionals="18" coveredconditionals="5" methods="3" coveredmethods="3"/>
+        <metrics statements="35" coveredstatements="17" conditionals="18" coveredconditionals="3" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="cond" truecount="3" falsecount="1"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="17" count="0" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="24" count="0" type="stmt"/>
         <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -100,24 +98,26 @@
         <line num="38" count="0" type="stmt"/>
         <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="45" count="0" type="stmt"/>
-        <line num="53" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="76" count="1" type="stmt"/>
-        <line num="77" count="1" type="stmt"/>
-        <line num="78" count="1" type="stmt"/>
-        <line num="80" count="1" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="60" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
         <line num="85" count="1" type="stmt"/>
-        <line num="87" count="0" type="stmt"/>
-        <line num="91" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
         <line num="92" count="1" type="stmt"/>
-        <line num="93" count="1" type="stmt"/>
-        <line num="95" count="1" type="stmt"/>
-        <line num="100" count="0" type="stmt"/>
-        <line num="105" count="1" type="stmt"/>
-        <line num="106" count="1" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="98" count="1" type="stmt"/>
+        <line num="99" count="1" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
+        <line num="102" count="1" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="112" count="1" type="stmt"/>
+        <line num="113" count="1" type="stmt"/>
       </file>
     </package>
     <package name="repository">
@@ -228,27 +228,27 @@
         <line num="14" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="15" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="25" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="41" count="2" type="stmt"/>
-        <line num="43" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="47" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="55" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="59" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="63" count="2" type="stmt"/>
-        <line num="68" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="69" count="1" type="stmt"/>
-        <line num="77" count="1" type="stmt"/>
-        <line num="84" count="1" type="stmt"/>
-        <line num="89" count="1" type="stmt"/>
-        <line num="96" count="2" type="stmt"/>
-        <line num="97" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="30" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="49" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="53" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="61" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="65" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="69" count="2" type="stmt"/>
+        <line num="74" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="75" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="102" count="2" type="stmt"/>
+        <line num="103" count="2" type="stmt"/>
       </file>
     </package>
     <package name="typeorm">
@@ -264,16 +264,17 @@
       </file>
     </package>
     <package name="typeorm.entity">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="resume.entity.js" path="C:\개인파일\Program_본가\Sparta\delivery\src\typeorm\entity\resume.entity.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="8" type="stmt"/>
         <line num="3" count="8" type="stmt"/>
       </file>
       <file name="user.entity.js" path="C:\개인파일\Program_본가\Sparta\delivery\src\typeorm\entity\user.entity.js">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="8" type="stmt"/>
         <line num="3" count="8" type="stmt"/>
+        <line num="8" count="8" type="stmt"/>
       </file>
     </package>
   </project>
