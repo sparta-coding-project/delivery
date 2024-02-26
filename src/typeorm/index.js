@@ -11,7 +11,7 @@ const dataSource = new typeorm.DataSource({
     synchronize: true,
     entities: [
         require('./entity/user.entity'),
-        require('./entity/resume.entity'),
+        require('./entity/store.entity'),
     ],
 })
 
