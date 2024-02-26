@@ -21,7 +21,7 @@ if (process.env.NODE_ENV !== 'test') {
     dataSource
         .initialize()
         .then(() => console.log('mysql is successfully connected'))
-        .catch((error)=>console.log(error))
+        .catch((error) => console.log(error))
 }
 
 module.exports = { dataSource }

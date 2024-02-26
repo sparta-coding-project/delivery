@@ -1,8 +1,8 @@
 const EntitySchema = require('typeorm').EntitySchema
 
 const ROLE = {
-    BIZ: "BIZ",
-    CUSTOMER: "CUSTOMER"
+    BIZ: 'BIZ',
+    CUSTOMER: 'CUSTOMER',
 }
 
 module.exports = new EntitySchema({
@@ -16,32 +16,42 @@ module.exports = new EntitySchema({
         },
         clientId: {
             type: 'varchar',
+            nullable: true,
         },
         email: {
             type: 'varchar',
+            nullable: true,
         },
         password: {
             type: 'varchar',
+            nullable: true,
         },
         nickname: {
             type: 'varchar',
+            nullable: true,
         },
         type: {
             type: 'enum',
             enum: ROLE,
+            nullable: true,
         },
         name: {
             type: 'varchar',
+            nullable: true,
         },
         profileImage: {
             type: 'varchar',
+            nullable: true,
         },
         createdAt: {
-            type: 'datetime',
+            type: 'timestamp',
+            createDate: true,
+            nullable: true,
         },
         updatedAt: {
             type: 'timestamp',
             createDate: true,
+            nullable: true,
         },
     },
     relations: {
@@ -80,5 +90,5 @@ module.exports = new EntitySchema({
             joinColumn: { name: 'cartId' },
             cascade: true,
         },
-    }
+    },
 })
