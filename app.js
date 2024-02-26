@@ -13,9 +13,9 @@ const port = 3000
 
 app.use(bodyParser.json())
 
-app.use('/auth', authRouter)
-app.use('/users', userRouter)
-app.use('/resumes', resumeRouter)
+app.use('/auth', authRouter);
+app.use('/users', userRouter);
+app.use("/api", [ordersRouter, cartsRouter]);
 
 const options = {
     swaggerDefinition: {
