@@ -16,7 +16,10 @@ const dataSource = new typeorm.DataSource({
 })
 
 if (process.env.NODE_ENV !== 'test') {
-    dataSource.initialize()
+    dataSource
+        .initialize()
+        .then(() => console.log('mysql is successfully connected'))
+        .catch((error) => console.log(error))
 }
 
 module.exports = { dataSource }
