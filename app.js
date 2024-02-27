@@ -7,6 +7,7 @@ const swaggerUi = require('swagger-ui-express')
 const authRouter = require('./routers/auth.router')
 const userRouter = require('./routers/user.router')
 const resumeRouter = require('./routers/resume.router')
+const emailRouter = require('./routers/email.router')
 
 const app = express()
 const port = 3000
@@ -16,7 +17,7 @@ app.use(bodyParser.json())
 app.use('/auth', authRouter)
 app.use('/users', userRouter)
 app.use('/resumes', resumeRouter)
-
+app.use('/', emailRouter)
 const options = {
     swaggerDefinition: {
         restapi: '3.0.0',
