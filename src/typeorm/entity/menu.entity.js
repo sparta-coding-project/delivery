@@ -34,8 +34,8 @@ module.exports = new EntitySchema({
         },
     },
     relations: {
-        stores: {
-            target: 'Stores',
+        store: {
+            target: 'Store',
             type: 'many-to-one',
             joinTable: true,
             joinColumn: { name: 'storeId' },
