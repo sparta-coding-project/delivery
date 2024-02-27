@@ -13,7 +13,7 @@ const cartsController = new CartsController(cartService);
 
 router
     .route("/carts")
-    //.get(cartsController.getCart)
+    .get(cartsController.getAllCarts)
     .post(cartsController.createCart);
 
 router
@@ -21,3 +21,5 @@ router
     .get(cartsController.getOneCart)
     .patch(cartsController.updateCart)
     .delete(cartsController.deleteCart);
+
+module.exports = router

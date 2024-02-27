@@ -1,4 +1,4 @@
-const storeService = require('../service/store.service')
+const storeService = require('../service/store.service.js')
 
 class StoreController {
     findAllStores = async (req, res) => {

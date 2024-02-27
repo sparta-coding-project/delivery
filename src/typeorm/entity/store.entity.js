@@ -12,15 +12,15 @@ module.exports = new EntitySchema({
         userId: {
             type: 'int',
         },
-        // menuId: {
-        //     type: 'int',
-        // },
-        // orderId: {
-        //     type: 'int',
-        // },
-        // reviewId: {
-        //     type: 'int',
-        // },
+        menuId: {
+            type: 'int',
+        },
+        orderId: {
+            type: 'int',
+        },
+        reviewId: {
+            type: 'int',
+        },
         name: {
             type: 'varchar',
         },
@@ -50,26 +50,26 @@ module.exports = new EntitySchema({
             joinColumn: { name: 'userId' },
             cascade: true,
         },
-        // menu: {
-        //     target: 'Menu',
-        //     type: 'one-to-many',
-        //     joinTable: true,
-        //     joinColumn: { name: 'menuId' },
-        //     cascade: true,
-        // },
-        // orders: {
-        //     target: 'Orders',
-        //     type: 'one-to-many',
-        //     joinTable: true,
-        //     joinColumn: { name: 'orderId' },
-        //     cascade: true,
-        // },
-        // reviews: {
-        //     target: 'Reviews',
-        //     type: 'one-to-many',
-        //     joinTable: true,
-        //     joinColumn: { name: 'reviewId' },
-        //     cascade: true,
-        // },
+        menu: {
+            target: 'Menu',
+            type: 'one-to-many',
+            joinTable: true,
+            joinColumn: { name: 'menuId' },
+            cascade: true,
+        },
+        orders: {
+            target: 'Orders',
+            type: 'one-to-many',
+            joinTable: true,
+            joinColumn: { name: 'orderId' },
+            cascade: true,
+        },
+        reviews: {
+            target: 'Reviews',
+            type: 'one-to-many',
+            joinTable: true,
+            joinColumn: { name: 'reviewId' },
+            cascade: true,
+        },
     },
 })
