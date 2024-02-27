@@ -17,5 +17,6 @@ router
     .post(cartsController.createCart)
     
 router.route("/carts/:cartId")
+    .get(cartsController.getOneCart)
     .patch(cartsController.updateCart)
     .delete(cartsController.deleteCart);

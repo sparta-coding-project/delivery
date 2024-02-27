@@ -3,12 +3,21 @@ class CartsController {
         this.cartsService = cartsService
     }
 
-    getCarts = async (req, res, next) => {
+    getAllCarts = async (req, res, next) => {
         const { userId } = req.body
-        const carts = this.cartsService.getCarts({ userId })
+        const carts = this.cartsService.getAllCarts({ userId })
         return res
             .status(200)
             .json({ message: '장바구니를 불러왔습니다.', data: carts })
+    }
+
+    getOneCart = async (req, res, next) => {
+        const { userId } = req.body
+        const { cartId } = req.params
+        const cart = this.cartsService.getOneCart({
+            userId,
+            cartId,
+        })
     }
     createCart = async (req, res, next) => {
         const { userId, storeId, menuId, quantity } = req.body
@@ -40,8 +49,8 @@ class CartsController {
         const { cartId } = req.params
         const { userId } = req.body
         const deletedCart = this.cartsService.deleteCart({
-                cartId,
-                userId,
+            cartId,
+            userId,
         })
         return res
             .status(201)

@@ -3,31 +3,30 @@ class CartRepository {
         this.dataSource = dataSource
     }
 
-    cartsRepo = this.dataSource.getRepository('Carts')
-
     selectAllCartsByUserId = async (userId) => {
-        const carts = await this.cartsRepo.find({
+        const carts = await this.dataSource.getRepository('Carts').find({
             where: {
                 userId,
             },
             order: {
-                createdAt: desc,
+                createdAt: "desc",
             },
         })
         return carts
     }
 
-    selectOneCart = async (cartId) => {
-        const cart = await this.cartsRepo.findOne({
+    selectOneCart = async ({userId, cartId}) => {
+        const cart = await this.dataSource.getRepository('Carts').findOne({
             where: {
                 cartId,
+                userId
             },
         })
         return cart
     }
 
     createCart = async ({ menuId, userId, quantity }) => {
-        const newCart = await this.cartsRepo.create({
+        const newCart = await this.dataSource.getRepository('Carts').create({
             menuId,
             userId,
             quantity,
@@ -36,7 +35,7 @@ class CartRepository {
     }
 
     updateCart = async ({ menuId, quantity }) => {
-        const updatedCart = await this.cartsRepo.update(
+        const updatedCart = await this.dataSource.getRepository('Carts').update(
             { cartId, userId },
             { quantity }
         )
@@ -44,9 +43,11 @@ class CartRepository {
     }
 
     deleteCart = async ({cartId}) => {
-        const deletedCart = await this.cartsRepo.delete({
+        const deletedCart = await this.dataSource.getRepository('Carts').delete({
             cartId, userId
         });
         return deletedCart;
     }
 }
+
+module.exports = CartRepository
