@@ -2,10 +2,10 @@ const express = require('express')
 
 const router = express.Router()
 
-const OrdersController = require('../src/controller/orders.controller');
-const OrdersService = require('../src/service/orders.service');
-const OrdersRepository = require('../src/repository/orders.repository');
-const { dataSource } = require('../src/typeorm/index');
+const OrdersController = require('../controller/orders.controller');
+const OrdersService = require('../service/orders.service');
+const OrdersRepository = require('../repository/orders.repository');
+const { dataSource } = require('../typeorm/index');
 
 const ordersRepository = new OrdersRepository(dataSource);
 const ordersService = new OrdersService(ordersRepository);
