@@ -1,5 +1,7 @@
-const reviewService = require('../service/review.service')
 class ReviewController {
+    constructor(reviewService){
+        this.reviewService = reviewService
+    }
     createReview = async (req, res, next) => {
         try {
             const { userId, title, content} = req.body
@@ -70,5 +72,5 @@ class ReviewController {
     }
 }
 
-const reviewController = new ReviewController()
-module.exports = reviewController
+
+module.exports = ReviewController

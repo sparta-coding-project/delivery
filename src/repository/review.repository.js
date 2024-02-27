@@ -1,16 +1,18 @@
-const { dataSource } = require('../typeorm')
 class ReviewRepository {
-    findAllReview = async () => {
-        const reviews = await dataSource.reviews.findMany()
-        return reviews
+    constructor(dataSource) {
+        this.dataSource = dataSource;
     }
+    findAllReview = async () => {
+        const reviews = await dataSource.reviews.findMany();
+        return reviews;
+    };
 
     findReviewById = async (reviewId) => {
         const review = await dataSource.reviews.findUnique({
             where: { reviewId: +reviewId },
-        })
-        return review
-    }
+        });
+        return review;
+    };
 
     createReview = async (userId, title, content) => {
         const createdReview = await dataSource.reviews.create({
@@ -19,9 +21,9 @@ class ReviewRepository {
                 title,
                 content,
             },
-        })
-        return createdReview
-    }
+        });
+        return createdReview;
+    };
 
     updateReview = async (reviewId, password, title, content) => {
         const updatedReview = await dataSource.reviews.updated({
@@ -33,9 +35,9 @@ class ReviewRepository {
                 title,
                 content,
             },
-        })
-        return updatedReview
-    }
+        });
+        return updatedReview;
+    };
 
     deleteReview = async (reviewId, password) => {
         const deletedReview = await dataSource.reviews.delete({
@@ -43,10 +45,10 @@ class ReviewRepository {
                 reviewId: +reviewId,
                 password: password,
             },
-        })
-        return deletedReview
-    }
+        });
+        return deletedReview;
+    };
 }
 
-const reviewRepository = new ReviewRepository()
-module.exports = reviewRepository
+
+module.exports = ReviewRepository;
