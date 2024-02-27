@@ -27,7 +27,7 @@ module.exports = new EntitySchema({
             nullable: true,
         },
         grade: {
-            type: "varchar",
+            type: "enum",
             enum: ROLE,
             nullable: true,
         },
