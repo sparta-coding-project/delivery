@@ -1,7 +1,7 @@
-const storeService = require('./store.service')
-const storeRepository = require('../repository/store.repository')
+const storeService = require('../../../src/service/store.service')
+const storeRepository = require('../../../src/repository/store.repository')
 
-jest.mock('../repository/store.repository')
+jest.mock('../../../src/repository/store.repository')
 
 describe('StoreService', () => {
     describe('모든 식당 조회', () => {

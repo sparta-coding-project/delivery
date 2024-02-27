@@ -1,7 +1,7 @@
-const authController = require('./auth.controller')
-const authService = require('../service/auth.service')
+const authController = require('../../../src/controller/auth.controller')
+const authService = require('../../../src/service/auth.service')
 
-jest.mock('../service/auth.service')
+jest.mock('../../../src/service/auth.service')
 
 describe('AuthController', () => {
     describe('RefreshToken으로 새로운 accessToken 발급', () => {

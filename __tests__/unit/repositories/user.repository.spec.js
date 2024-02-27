@@ -1,7 +1,7 @@
-const { dataSource } = require('../typeorm')
-const userRepository = require('./user.repository')
+const { dataSource } = require('../../../src/typeorm')
+const userRepository = require('../../../src/repository/user.repository')
 
-jest.mock('../typeorm')
+jest.mock('../../../src/typeorm')
 
 describe('UserRepository', () => {
     describe('userId로 사용자를 조회한다', () => {

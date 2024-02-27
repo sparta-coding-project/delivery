@@ -1,7 +1,7 @@
-const { dataSource } = require('../typeorm')
-const storeRepository = require('./store.repository')
+const { dataSource } = require('../../../src/typeorm')
+const storeRepository = require('../../../src/repository/store.repository')
 
-jest.mock('../typeorm')
+jest.mock('../../../src/typeorm')
 // jest.mock('./store.repository')
 
 describe('StoreRepository', () => {

@@ -1,9 +1,9 @@
-const userService = require('./user.service')
+const userService = require('../../../src/service/user.service')
 const jwtwebToken = require('jsonwebtoken')
-const userRepository = require('../repository/user.repository')
+const userRepository = require('../../../src/repository/user.repository')
 
 jest.mock('jsonwebtoken')
-jest.mock('../repository/user.repository')
+jest.mock('../../../src/repository/user.repository')
 
 describe('UserService', () => {
     describe('사용자 가입', () => {

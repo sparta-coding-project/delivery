@@ -1,7 +1,7 @@
-const userController = require('./user.controller')
-const userService = require('../service/user.service')
+const userController = require('../../../src/controller/user.controller')
+const userService = require('../../../src/service/user.service')
 
-jest.mock('../service/user.service')
+jest.mock('../../../src/service/user.service')
 
 describe('UserController', () => {
     describe('회원가입', () => {

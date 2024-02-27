@@ -1,9 +1,9 @@
-const authService = require('../service/auth.service')
+const authService = require('../../../src/service/auth.service')
 const jwtwebToken = require('jsonwebtoken')
-const userRepository = require('../repository/user.repository')
+const userRepository = require('../../../src/repository/user.repository')
 
 jest.mock('jsonwebtoken')
-jest.mock('../repository/user.repository')
+jest.mock('../../../src/repository/user.repository')
 
 describe('AuthService', () => {
     describe('AccessToken 인증', () => {
