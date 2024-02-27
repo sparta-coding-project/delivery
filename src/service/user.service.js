@@ -5,7 +5,7 @@ const userRepository = require('../repository/user.repository')
 
 class UserService {
     userSignUp = async (data) => {
-        const { email, clientId, password, name, grade } = data
+        const { email, clientId, password, name, profileImage, grade } = data
 
         // clientId (kakao)
         if (clientId) {
@@ -18,7 +18,12 @@ class UserService {
                 }
             }
 
-            await userRepository.createUser({ clientId, name, grade })
+            await userRepository.createUser({
+                clientId,
+                name,
+                profileImage,
+                grade,
+            })
         } else {
             const user = await userRepository.selectOneUserByEmail(email)
 
@@ -33,6 +38,7 @@ class UserService {
                 email,
                 password: sha256(password).toString(),
                 name,
+                profileImage,
                 grade,
             })
         }

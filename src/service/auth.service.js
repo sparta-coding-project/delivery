@@ -5,7 +5,6 @@ class AuthService {
     verifyAccessToken = async (accessToken) => {
         const token = jwtwebToken.verify(accessToken, 'resume@#')
 
-        // accessToken 안에 userId 데이터가 잘 들어있는가?
         if (!token.userId) {
             throw new Error('인증 정보가 올바르지 않습니다.')
         }
@@ -38,7 +37,7 @@ class AuthService {
             }
         }
 
-        // freshToken 유효함 -> accessToken, refreshToken 재발급
+        // refreshToken 유효함 -> accessToken, refreshToken 재발급
         const newAccessToken = jwtwebToken.sign(
             { userId: user.userId },
             'resume@#',
