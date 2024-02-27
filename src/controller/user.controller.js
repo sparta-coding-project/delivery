@@ -3,14 +3,21 @@ const userService = require('../service/user.service')
 class UserController {
     userSignUp = async (req, res) => {
         try {
-            const { email, clientId, password, passwordConfirm, name, grade } =
-                req.body
-            if (grade && !['user', 'admin'].includes(grade)) {
+            const {
+                email,
+                clientId,
+                password,
+                passwordConfirm,
+                name,
+                profileImage,
+                grade,
+            } = req.body
+            if (grade && !['BIZ', 'CUSTOMER'].includes(grade)) {
                 return res.status(400).json({
                     success: false,
                     message: '등급이 올바르지 않습니다.',
                 })
-            } // "필요한 값을 파싱해온다"
+            }
 
             if (!clientId) {
                 if (!email) {
@@ -61,6 +68,7 @@ class UserController {
                 clientId,
                 password,
                 name,
+                profileImage,
                 grade,
             })
 
@@ -95,6 +103,7 @@ class UserController {
             return res.json({
                 email: user.email,
                 name: user.name,
+                profileImage: user.profileImage,
             })
         } catch (err) {
             return res.status(err.code).json(err)

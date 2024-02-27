@@ -6,7 +6,7 @@ const swaggerUi = require('swagger-ui-express')
 
 const authRouter = require('./routers/auth.router')
 const userRouter = require('./routers/user.router')
-const resumeRouter = require('./routers/resume.router')
+const storeRouter = require('./routers/store.router')
 
 const app = express()
 const port = 3000
@@ -15,13 +15,13 @@ app.use(bodyParser.json())
 
 app.use('/auth', authRouter)
 app.use('/users', userRouter)
-app.use('/resumes', resumeRouter)
+app.use('/stores', storeRouter)
 
 const options = {
     swaggerDefinition: {
         restapi: '3.0.0',
         info: {
-            title: 'Resume API',
+            title: 'Store API',
             version: '1.0.0',
             description: '이력서 API Swagger 문서 입니다.',
         },

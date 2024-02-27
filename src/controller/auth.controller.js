@@ -3,9 +3,8 @@ const authService = require('../service/auth.service')
 class AuthController {
     generateNewAccessTokenByRefreshToken = async (req, res) => {
         try {
-            const { refreshToken } = req.body // http로 넘어가서 파싱함
-
-            const token = await authService.verifyRefreshToken(refreshToken) // 서비스 호출
+            const { refreshToken } = req.body
+            const token = await authService.verifyRefreshToken(refreshToken)
             return res.json(token)
         } catch (err) {
             return res.status(err.code).json(err)
