@@ -8,7 +8,7 @@ const dataSource = new typeorm.DataSource({
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    synchronize: true,
+    synchronize: false,
     entities: ["src/typeorm/entity/**/*.js"],
     migrations: ["src/typeorm/migrations/**/*.js"],
 });
