@@ -22,7 +22,7 @@ app.use("/api", [ordersRouter, cartsRouter]);
 app.use("/stores", storeRouter);
 app.use("/reviews", reviewRouter);
 
-app.use(ErrorHandlingMiddleware);
+// app.use(ErrorHandlingMiddleware);
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
