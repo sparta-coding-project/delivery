@@ -25,15 +25,15 @@ module.exports = new EntitySchema({
         },
     },
     relations: {
-        users: {
-            target: 'Users',
+        user: {
+            target: 'User',
             type: 'many-to-one',
             joinTable: true,
             joinColumn: { name: 'userId' },
             cascade: true,
         },
-        stores: {
-            target: 'Stores',
+        store: {
+            target: 'Store',
             type: 'many-to-one',
             joinTable: true,
             joinColumn: { name: 'storeId' },
