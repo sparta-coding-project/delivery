@@ -5,7 +5,7 @@ class CartsController {
 
     getAllCarts = async (req, res, next) => {
         try {
-            const { userId } = req.body;
+            const { userId } = req.locals.user;
             const carts = await this.cartsService.getAllCarts({ userId });
             return res
                 .status(200)
@@ -19,7 +19,7 @@ class CartsController {
 
     getOneCart = async (req, res, next) => {
         try {
-            const { userId } = req.body;
+            const { userId } = req.locals.user;
             const { cartId } = req.params;
             const cart = await this.cartsService.getOneCart({
                 userId,
@@ -36,7 +36,8 @@ class CartsController {
     };
     createCart = async (req, res, next) => {
         try {
-            const { userId, storeId, menuId, quantity } = req.body;
+            const { userId } = req.locals.user
+            const { storeId, menuId, quantity } = req.body;
             const newCart = await this.cartsService.createCart({
                 userId,
                 storeId,
@@ -56,7 +57,8 @@ class CartsController {
     updateCart = async (req, res, next) => {
         try {
             const { cartId } = req.params;
-            const { userId, quantity } = req.body;
+            const { userId } = req.locals.user
+            const { quantity } = req.body;
             const updatedCart = await this.cartsService.updateCart({
                 cartId,
                 userId,
@@ -76,7 +78,7 @@ class CartsController {
     deleteCart = async (req, res, next) => {
         try {
             const { cartId } = req.params;
-            const { userId } = req.body;
+            const { userId } = req.locals.user
             const deletedCart = await this.cartsService.deleteCart({
                 cartId,
                 userId,

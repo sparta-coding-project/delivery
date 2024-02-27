@@ -10,7 +10,7 @@ class CartsService {
 
     getOneCart = async ({userId, cartId}) => {
         const carts = await this.cartsRepository.selectOneCart({userId, cartId});
-        return carts;
+        return carts
     }
 
     createCart = async ({ userId, storeId, menuId, quantity }) => {

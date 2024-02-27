@@ -5,7 +5,8 @@ class OrdersController {
 
     getOrders = async (req, res, next) => {
         try {
-            const { userId, storeId } = req.body
+            const { userId } = req.locals.user
+            const { storeId } = req.body
             const orders = await this.ordersService.getOrders({ userId, storeId })
             return res.status(200).json({ message: '주문을 불러왔습니다.', data: orders })
         } catch (error) {
@@ -15,7 +16,8 @@ class OrdersController {
     } //
     createOrder = async (req, res, next) => {
         try {
-            const { menuId, userId, storeId, quantity } = req.body
+            const { userId } = req.locals.user
+            const { menuId, storeId, quantity } = req.body
             const order = await this.ordersService.createOrder({
                 menuId,
                 userId,
@@ -36,7 +38,7 @@ class OrdersController {
         } catch (error) {
             return res.status(401).json({ error: error })
         }
-    } //
+    }
 }
 
 module.exports = OrdersController

@@ -35,14 +35,14 @@ class CartRepository {
         return newCart;
     };
 
-    updateCart = async ({ menuId, quantity }) => {
+    updateCart = async ({ cartId,  userId, quantity }) => {
         const updatedCart = await this.dataSource
             .getRepository("Carts")
             .update({ cartId, userId }, { quantity });
         return updatedCart;
     };
 
-    deleteCart = async ({ cartId }) => {
+    deleteCart = async ({ cartId, userId }) => {
         const deletedCart = await this.dataSource
             .getRepository("Carts")
             .delete({
