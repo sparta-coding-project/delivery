@@ -1,6 +1,6 @@
 const express = require('express')
 const jwtValidate = require('../middleware/jwt-validate.middleware')
-const storeController = require('../src/controller/store.controller')
+const storeController = require('../controller/store.controller')
 const router = express.Router()
 
 router.get('/', storeController.findAllStores)
