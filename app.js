@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 const authRouter = require("./src/routers/auth.router");
 const userRouter = require("./src/routers/user.router");
@@ -13,6 +14,7 @@ const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
+app.use(cookieParser())
 connectDB();
 
 app.use("/auth", authRouter);
