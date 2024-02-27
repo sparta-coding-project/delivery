@@ -1,32 +1,32 @@
-require('dotenv').config()
+require("dotenv").config();
 
-const typeorm = require('typeorm')
+const typeorm = require("typeorm");
 const dataSource = new typeorm.DataSource({
-    type: 'mysql',
+    type: process.env.DB_TYPE,
     host: process.env.DB_HOST,
     port: process.env.PORT,
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
+    database: process.env.DB_NAME,
     synchronize: true,
     entities: [
-        require('./entity/user.entity'),
-        require('./entity/store.entity'),
+        require("./entity/user.entity"),
+        require("./entity/store.entity"),
     ],
-})
+});
 
 const connectDB = () => {
     dataSource
         .initialize()
-        .then(() => console.log('mysql is successfully connected'))
-        .catch((error) => console.log(error))
-}
+        .then(() => console.log("mysql is successfully connected"))
+        .catch((error) => console.log(error));
+};
 
 const disconnectDB = () => {
     dataSource
         .destroy()
-        .then(() => console.log('mysql 연결 해제'))
-        .catch((error) => console.log(error))
-}
+        .then(() => console.log("mysql 연결 해제"))
+        .catch((error) => console.log(error));
+};
 
-module.exports = { dataSource, connectDB, disconnectDB }
+module.exports = { dataSource, connectDB, disconnectDB };
