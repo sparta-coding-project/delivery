@@ -37,7 +37,7 @@ class CartRepository {
 
     updateCart = async ({ menuId, quantity }) => {
         const updatedCart = await this.cartsRepo.update(
-            { menuId },
+            { cartId, userId },
             { quantity }
         )
         return updatedCart
@@ -45,7 +45,7 @@ class CartRepository {
 
     deleteCart = async ({cartId}) => {
         const deletedCart = await this.cartsRepo.delete({
-            cartId
+            cartId, userId
         });
         return deletedCart;
     }
