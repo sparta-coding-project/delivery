@@ -2,17 +2,15 @@ require("dotenv").config();
 
 const typeorm = require("typeorm");
 const dataSource = new typeorm.DataSource({
-    type: process.env.DB_TYPE,
+    type: "mysql",
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     synchronize: true,
-    entities: [
-        require("./entity/user.entity"),
-        require("./entity/store.entity"),
-    ],
+    entities: ["src/typeorm/entity/**/*.js"],
+    migrations: ["src/typeorm/migrations/**/*.js"],
 });
 
 const connectDB = () => {
