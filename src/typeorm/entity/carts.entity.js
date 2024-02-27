@@ -15,6 +15,9 @@ module.exports = new EntitySchema({
         menuId: {
             type: 'int',
         },
+        storeId: {
+            type: "int",
+        },
         quantity: {
             type: 'int',
         },
@@ -42,5 +45,12 @@ module.exports = new EntitySchema({
             joinColumn: { name: 'menuId' },
             cascade: true,
         },
+        store: {
+            target: "Stores",
+            type: "many-to-one",
+            joinTable: true,
+            joinColumn: { name: "storeId"},
+            cascade: true,
+        }
     },
 })

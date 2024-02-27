@@ -21,6 +21,7 @@ module.exports = new EntitySchema({
         },
         storeId: {
             type: 'int',
+            nullable: true,
         },
         menuId: {
             type: 'int',
