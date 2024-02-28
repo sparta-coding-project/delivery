@@ -1,6 +1,7 @@
 const sha256 = require("crypto-js/sha256");
 const jwtwebToken = require("jsonwebtoken");
 const userRepository = require("../repository/user.repository");
+const { mailSender } = require("../utils/nodemailer/mail");
 
 class UserService {
     userSignUp = async (data) => {
@@ -32,6 +33,13 @@ class UserService {
                     message: "이미 가입된 이메일 입니다.",
                 };
             }
+            let emailParam = {
+                toEmail: email,
+                subject: "회원가입 승인 이메일입니다.",
+                text: "회원가입 승인 이메일입니다.",
+            };
+
+            mailSender.sendGmail(emailParam);
 
             await userRepository.createUser({
                 email,

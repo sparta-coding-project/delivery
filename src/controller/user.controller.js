@@ -1,5 +1,4 @@
 const userService = require("../service/user.service");
-const { mailSender } = require("../utils/nodemailer/mail");
 class UserController {
     userSignUp = async (req, res) => {
         try {
@@ -63,14 +62,6 @@ class UserController {
                     .json({ success: false, message: "이름은 필수값입니다." });
             }
 
-            let emailParam = {
-                toEmail: email,
-                subject: "회원가입 승인 이메일입니다.",
-                text: "회원가입 승인 이메일입니다.",
-            };
-
-            mailSender.sendGmail(emailParam);
-
             await userService.userSignUp({
                 email,
                 clientId,
@@ -85,7 +76,8 @@ class UserController {
                 name,
             });
         } catch (err) {
-            return res.status(err.code).json(err);
+            console.log(err);
+            return res.status(400).json(err);
         }
     };
 
