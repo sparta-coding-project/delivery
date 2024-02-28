@@ -43,7 +43,7 @@ module.exports = new EntitySchema({
         },
         orders: {
             target: 'Orders',
-            type: 'one-to-many',
+            type: 'many-to-many',
             joinTable: true,
             joinColumn: { name: 'menuId' },
             cascade: true,
