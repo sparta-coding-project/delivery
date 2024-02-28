@@ -9,7 +9,7 @@ const jwtValidate = async (req, res, next) => {
             throw new Error("인증 정보가 올바르지 않습니다.");
         }
 
-        const user = await authService.verifyAccessToken(tokenValue);
+        const user = await authService.verifyAccessToken(accessToken);
 
         // user 정보 담기
         res.locals.user = user;

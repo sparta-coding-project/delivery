@@ -5,7 +5,7 @@ class OrdersController {
 
     getOrders = async (req, res, next) => {
         try {
-            const { userId } = req.locals.user
+            const { userId } = res.locals.user
             const { storeId } = req.body
             const orders = await this.ordersService.getOrders({ userId, storeId })
             return res.status(200).json({ message: '주문을 불러왔습니다.', data: orders })
@@ -16,7 +16,7 @@ class OrdersController {
     } //
     createOrder = async (req, res, next) => {
         try {
-            const { userId } = req.locals.user
+            const { userId } = res.locals.user
             const { menuId, storeId, quantity } = req.body
             const order = await this.ordersService.createOrder({
                 menuId,

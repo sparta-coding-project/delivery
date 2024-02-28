@@ -77,7 +77,7 @@ class UserController {
             });
         } catch (err) {
             console.log(err);
-            return res.status(400).json(err);
+            return res.status(401).json(err);
         }
     };
 
@@ -94,7 +94,7 @@ class UserController {
             res.cookie("refreshToken", `${token.refreshToken}`);
             return res.json(token);
         } catch (err) {
-            return res.status(err.code).json(err);
+            return res.status(400).json(err);
         }
     };
 
@@ -108,7 +108,7 @@ class UserController {
                 profileImage: user.profileImage,
             });
         } catch (err) {
-            return res.status(err.code).json(err);
+            return res.status(400).json(err);
         }
     };
 }

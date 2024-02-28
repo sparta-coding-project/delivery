@@ -5,7 +5,7 @@ class CartsController {
 
     getAllCarts = async (req, res, next) => {
         try {
-            const { userId } = req.locals.user;
+            const { userId } = res.locals.user;
             const carts = await this.cartsService.getAllCarts({ userId });
             return res
                 .status(200)
@@ -19,7 +19,7 @@ class CartsController {
 
     getOneCart = async (req, res, next) => {
         try {
-            const { userId } = req.locals.user;
+            const { userId } = res.locals.user;
             const { cartId } = req.params;
             const cart = await this.cartsService.getOneCart({
                 userId,
@@ -57,7 +57,7 @@ class CartsController {
     updateCart = async (req, res, next) => {
         try {
             const { cartId } = req.params;
-            const { userId } = req.locals.user;
+            const { userId } = res.locals.user;
             const { quantity } = req.body;
             const updatedCart = await this.cartsService.updateCart({
                 cartId,
@@ -78,7 +78,7 @@ class CartsController {
     deleteCart = async (req, res, next) => {
         try {
             const { cartId } = req.params;
-            const { userId } = req.locals.user;
+            const { userId } = res.locals.user;
             const deletedCart = await this.cartsService.deleteCart({
                 cartId,
                 userId,
@@ -96,12 +96,13 @@ class CartsController {
 
     orderCart = async (req, res, next) => {
         try {
-            const { userId } = req.locals.user;
+            const { userId } = res.locals.user;
             const orderCart = await this.cartsService.orderCart({ userId });
             return res
                 .status(201)
                 .json({ message: "장바구니에서 주문이 완료되었습니다", data: orderCart });
         } catch (error) {
+            console.log(error)
             if (error.message) {
                 return res
                     .status(401)
