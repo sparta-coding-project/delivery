@@ -1,75 +1,78 @@
-const EntitySchema = require('typeorm').EntitySchema
+const EntitySchema = require("typeorm").EntitySchema;
 
 module.exports = new EntitySchema({
-    name: 'Store',
-    tableName: 'store',
+    name: "Store",
+    tableName: "store",
     columns: {
         storeId: {
             primary: true,
-            type: 'int',
+            type: "int",
             generated: true,
         },
         userId: {
-            type: 'int',
+            type: "int",
         },
         menuId: {
-            type: 'int',
+            type: "int",
+            nullable: true,
         },
         orderId: {
-            type: 'int',
+            type: "int",
+            nullable: true,
         },
         reviewId: {
-            type: 'int',
+            type: "int",
+            nullable: true,
         },
         name: {
-            type: 'varchar',
+            type: "varchar",
         },
         intro: {
-            type: 'text',
+            type: "text",
         },
         storeImage: {
-            type: 'varchar',
+            type: "varchar",
         },
         location: {
-            type: 'varchar',
+            type: "varchar",
         },
         createdAt: {
-            type: 'timestamp',
+            type: "timestamp",
             createDate: true,
         },
         updatedAt: {
-            type: 'timestamp',
+            type: "timestamp",
             createDate: true,
         },
     },
     relations: {
         user: {
-            target: 'User',
-            type: 'many-to-one',
+            target: "User",
+            type: "many-to-one",
             joinTable: true,
-            joinColumn: { name: 'userId' },
+            joinColumn: { name: "userId" },
             cascade: true,
         },
         menu: {
-            target: 'Menu',
-            type: 'one-to-many',
+            target: "Menu",
+            type: "one-to-many",
             joinTable: true,
-            joinColumn: { name: 'menuId' },
+            joinColumn: { name: "menuId" },
             cascade: true,
         },
         orders: {
-            target: 'Orders',
-            type: 'one-to-many',
+            target: "Orders",
+            type: "one-to-many",
             joinTable: true,
-            joinColumn: { name: 'orderId' },
+            joinColumn: { name: "orderId" },
             cascade: true,
         },
         reviews: {
-            target: 'Reviews',
-            type: 'one-to-many',
+            target: "Reviews",
+            type: "one-to-many",
             joinTable: true,
-            joinColumn: { name: 'reviewId' },
+            joinColumn: { name: "reviewId" },
             cascade: true,
         },
     },
-})
+});
