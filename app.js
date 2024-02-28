@@ -8,6 +8,7 @@ const ordersRouter = require("./src/routers/orders.router");
 const storeRouter = require("./src/routers/store.router");
 const cartsRouter = require("./src/routers/carts.router");
 const emailRouter = require("./src/routers/email.router");
+const menuRouter = require("./src/routers/menu.router")
 
 const reviewRouter = require("./src/routers/review.router");
 const { connectDB } = require("./src/typeorm/index");
@@ -22,7 +23,7 @@ connectDB();
 app.use("/auth", authRouter);
 
 app.use("/users", userRouter);
-app.use("/api", [ordersRouter, cartsRouter]);
+app.use("/api", [ordersRouter, cartsRouter, menuRouter]);
 app.use("/stores", storeRouter);
 app.use("/", emailRouter);
 app.use("/reviews", reviewRouter);

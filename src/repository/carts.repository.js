@@ -52,9 +52,24 @@ class CartRepository {
         return deletedCart;
     };
 
-    orderCart = async ({cartId, userId, menuId, storeId, quantity}) => {
-        const order = await this.dataSource.getRepository("Order").save({
-            cartId, userId, menuId, storeId, quantity
+    getUserData = async (userId) => {
+        const user = await this.dataSource.getRepository("User").findOne({
+            where: {
+                userId,
+            }
+        })
+        return user;
+    }
+
+    orderCart = async ({cartId, userId, menuId, storeId, quantity, location}) => {
+        const order = await this.dataSource.getRepository("Orders").save({
+            cartId, 
+            userId, 
+            menuId, 
+            storeId, 
+            quantity,
+            status: "ORDER_WAITING",
+            location
         })
         return order;
     }

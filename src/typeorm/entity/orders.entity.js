@@ -40,9 +40,6 @@ module.exports = new EntitySchema({
         quantity: {
             type: 'int',
         },
-        field: {
-            type: 'varchar',
-        },
         createdAt: {
             type: 'timestamp',
             createDate: true,

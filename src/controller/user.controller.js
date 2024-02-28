@@ -10,6 +10,7 @@ class UserController {
                 name,
                 profileImage,
                 grade,
+                location,
             } = req.body;
             if (grade && !["BIZ", "CUSTOMER"].includes(grade)) {
                 return res.status(400).json({
@@ -69,6 +70,7 @@ class UserController {
                 name,
                 profileImage,
                 grade,
+                location,
             });
 
             return res.status(201).json({

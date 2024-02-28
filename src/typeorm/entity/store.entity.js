@@ -12,15 +12,6 @@ module.exports = new EntitySchema({
         userId: {
             type: 'int',
         },
-        menuId: {
-            type: 'int',
-        },
-        orderId: {
-            type: 'int',
-        },
-        reviewId: {
-            type: 'int',
-        },
         name: {
             type: 'varchar',
         },

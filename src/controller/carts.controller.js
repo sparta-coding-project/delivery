@@ -36,7 +36,7 @@ class CartsController {
     };
     createCart = async (req, res, next) => {
         try {
-            const { userId } = req.locals.user;
+            const { userId } = res.locals.user;
             const { storeId, menuId, quantity } = req.body;
             const newCart = await this.cartsService.createCart({
                 userId,
