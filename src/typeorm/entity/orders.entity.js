@@ -16,6 +16,10 @@ module.exports = new EntitySchema({
             type: 'int',
             generated: true,
         },
+        cartId:{
+            type: "int",
+            nullable:true
+        },
         userId: {
             type: 'int',
         },
@@ -33,7 +37,7 @@ module.exports = new EntitySchema({
         location: {
             type: 'varchar',
         },
-        amount: {
+        quantity: {
             type: 'int',
         },
         field: {

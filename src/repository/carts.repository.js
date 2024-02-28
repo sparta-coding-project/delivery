@@ -51,6 +51,13 @@ class CartRepository {
             });
         return deletedCart;
     };
+
+    orderCart = async ({cartId, userId, menuId, storeId, quantity}) => {
+        const order = await this.dataSource.getRepository("Order").save({
+            cartId, userId, menuId, storeId, quantity
+        })
+        return order;
+    }
 }
 
 module.exports = CartRepository;
