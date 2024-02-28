@@ -98,6 +98,8 @@ class UserController {
                 email,
                 password,
             });
+            res.cookie("accessToken", `${token.accessToken}`);
+            res.cookie("refreshToken", `${token.refreshToken}`);
             return res.json(token);
         } catch (err) {
             return res.status(err.code).json(err);
