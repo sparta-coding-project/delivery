@@ -39,6 +39,11 @@ module.exports = new EntitySchema({
             type: "varchar",
             nullable: true,
         },
+        emailValidation: {
+            type: "boolean",
+            default: false,
+            nullable: true,
+        },
         createdAt: {
             type: "timestamp",
             createDate: true,

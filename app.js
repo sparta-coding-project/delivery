@@ -7,6 +7,8 @@ const userRouter = require("./src/routers/user.router");
 const ordersRouter = require("./src/routers/orders.router");
 const storeRouter = require("./src/routers/store.router");
 const cartsRouter = require("./src/routers/carts.router");
+const emailRouter = require("./src/routers/email.router");
+
 const reviewRouter = require("./src/routers/review.router");
 const { connectDB } = require("./src/typeorm/index");
 
@@ -14,7 +16,7 @@ const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
-app.use(cookieParser())
+app.use(cookieParser());
 connectDB();
 
 app.use("/auth", authRouter);
@@ -22,6 +24,7 @@ app.use("/auth", authRouter);
 app.use("/users", userRouter);
 app.use("/api", [ordersRouter, cartsRouter]);
 app.use("/stores", storeRouter);
+app.use("/", emailRouter);
 app.use("/reviews", reviewRouter);
 
 // app.use(ErrorHandlingMiddleware);
