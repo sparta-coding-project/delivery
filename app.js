@@ -1,37 +1,35 @@
-const express = require('express')
-const bodyParser = require('body-parser')
+const express = require("express");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
-const swaggerJsdoc = require('swagger-jsdoc')
-const swaggerUi = require('swagger-ui-express')
+const authRouter = require("./src/routers/auth.router");
+const userRouter = require("./src/routers/user.router");
+const ordersRouter = require("./src/routers/orders.router");
+const storeRouter = require("./src/routers/store.router");
+const cartsRouter = require("./src/routers/carts.router");
+const emailRouter = require("./src/routers/email.router");
+const menuRouter = require("./src/routers/menu.router")
 
-const authRouter = require('./routers/auth.router')
-const userRouter = require('./routers/user.router')
-const resumeRouter = require('./routers/resume.router')
+const reviewRouter = require("./src/routers/review.router");
+const { connectDB } = require("./src/typeorm/index");
 
-const app = express()
-const port = 3000
+const app = express();
+const port = 3000;
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(cookieParser());
+connectDB();
 
-app.use('/auth', authRouter)
-app.use('/users', userRouter)
-app.use('/resumes', resumeRouter)
+app.use("/auth", authRouter);
 
-const options = {
-    swaggerDefinition: {
-        restapi: '3.0.0',
-        info: {
-            title: 'Resume API',
-            version: '1.0.0',
-            description: '이력서 API Swagger 문서 입니다.',
-        },
-    },
-    apis: ['./routers/**/*.js'],
-}
+app.use("/users", userRouter);
+app.use("/api", [ordersRouter, cartsRouter, menuRouter]);
+app.use("/stores", storeRouter);
+app.use("/", emailRouter);
+app.use("/reviews", reviewRouter);
 
-const specs = swaggerJsdoc(options)
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs))
+// app.use(ErrorHandlingMiddleware);
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+    console.log(`Example app listening on port ${port}`);
+});
