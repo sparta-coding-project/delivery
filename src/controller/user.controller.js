@@ -10,6 +10,7 @@ class UserController {
                 name,
                 profileImage,
                 grade,
+                location,
             } = req.body;
             if (grade && !["BIZ", "CUSTOMER"].includes(grade)) {
                 return res.status(400).json({
@@ -69,6 +70,7 @@ class UserController {
                 name,
                 profileImage,
                 grade,
+                location,
             });
 
             return res.status(201).json({
@@ -77,7 +79,7 @@ class UserController {
             });
         } catch (err) {
             console.log(err);
-            return res.status(400).json(err);
+            return res.status(401).json(err);
         }
     };
 
@@ -94,7 +96,7 @@ class UserController {
             res.cookie("refreshToken", `${token.refreshToken}`);
             return res.json(token);
         } catch (err) {
-            return res.status(err.code).json(err);
+            return res.status(400).json(err);
         }
     };
 
@@ -108,7 +110,7 @@ class UserController {
                 profileImage: user.profileImage,
             });
         } catch (err) {
-            return res.status(err.code).json(err);
+            return res.status(400).json(err);
         }
     };
 }

@@ -5,7 +5,7 @@ const { mailSender } = require("../utils/nodemailer/mail");
 
 class UserService {
     userSignUp = async (data) => {
-        const { email, clientId, password, name, profileImage, grade } = data;
+        const { email, clientId, password, name, profileImage, grade, location } = data;
 
         // clientId (kakao)
         if (clientId) {
@@ -23,6 +23,7 @@ class UserService {
                 name,
                 profileImage,
                 grade,
+                location
             });
         } else {
             const user = await userRepository.selectOneUserByEmail(email);
@@ -47,6 +48,7 @@ class UserService {
                 name,
                 profileImage,
                 grade,
+                location
             });
         }
     };

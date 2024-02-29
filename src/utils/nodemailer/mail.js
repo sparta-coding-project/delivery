@@ -18,7 +18,7 @@ const mailSender = {
 
         //메일 옵션
         const mailOptions = {
-            from: "sanaI@SNI.com",
+            from: process.env.SMTP_ID,
             to: param.toEmail,
             subject: param.subject,
             html: `<h1>이메일 인증,
