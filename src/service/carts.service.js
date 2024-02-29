@@ -42,21 +42,28 @@ class CartsService {
         return deletedCart;
     };
     orderCart = async ({ userId }) => {
-        const user = await this.cartsRepository.getUserData(userId)
+        const user = await this.cartsRepository.getUserData(userId);
         const carts = await this.cartsRepository.selectAllCartsByUserId(userId);
 
         if (carts.length > 0) {
-            const orders = Promise.all(carts.map(async (cart) =>
-                await this.cartsRepository.orderCart({
-                    menuId: cart.menuId,
-                    storeId: cart.storeId,
-                    userId: cart.userId,
-                    cartId: cart.cartId,
-                    quantity: cart.quantity,
-                    location: user.location
+            const orders = Promise.all(
+                carts.map(async (cart) => {
+                    const orderedCart = await this.cartsRepository.orderCart({
+                        menuId: cart.menuId,
+                        storeId: cart.storeId,
+                        userId: cart.userId,
+                        cartId: cart.cartId,
+                        quantity: cart.quantity,
+                        location: user.location,
+                    });
+                    await this.cartsRepository.deleteCart({
+                        userId,
+                        cartId: cart.cartId,
+                    });
+                    return orderedCart
                 })
-            ))
-            return orders
+            );
+            return orders;
         } else {
             throw {
                 message: "주문 내역이 없습니다.",
